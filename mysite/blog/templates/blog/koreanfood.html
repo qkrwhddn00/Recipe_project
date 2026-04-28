@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category }} 레시피</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../../static/css/koreanfood.css">
+</head>
+<body>
+<a href="{% url 'main' %}" class="back-button">뒤로가기</a>
+<!-- 마이페이지 라벨 추가 -->
+<a href="{% url 'user_list' %}" id="mylabel_link" class="mylabel">
+    {{ GLOBAL_NICKNAME }} 님
+    <img src="../../static/images/myicon.png" alt="아이콘" class="mylabel-icon">
+</a>
+<a href="{% url 'main' %}">
+    <img src="../../static/images/LogowithoutText.png" alt="로고1" class="pagelogo">
+</a>
+<h1>{{ category }} 레시피</h1>
+<div class="grid">
+    <nav class="navbar">
+        <a href="{% url 'ko_food' category='한식' %}" class="nav-item">한식</a>
+        <a href="{% url 'ko_food' category='중식' %}" class="nav-item">중식</a>
+        <a href="{% url 'ko_food' category='양식' %}" class="nav-item">양식</a>
+        <a href="{% url 'ko_food' category='일식' %}" class="nav-item">일식</a>
+        <a href="{% url 'ko_food' category='디저트' %}" class="nav-item">디저트</a>
+    </nav>
+    {% for recipe in recipes %}
+    <!-- recipe_detail 페이지로 rec_id를 URL로 넘겨주는 링크 -->
+    <a href="{% url 'recipe_detail' recipe.rec_id %}" class="category-link" target="_blank">
+        <div class="category">
+            {% if recipe.rec_img %}
+            <img id="recipe-{{ recipe.rec_id }}" src="{{ recipe.rec_img }}" alt="{{ recipe.rec_name }}"
+                 class="recipe-image">
+            {% else %}
+            <p>이미지 없음</p>
+            {% endif %}
+            <p>{{ recipe.rec_name }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<div id="error-modal" class="guest-modal" style="display: none;">
+    <div class="guest-modal-content">
+        <p>게스트는 마이페이지에<br>접근할 수 없습니다.</p>
+        <span class="guest-modal-btn" onclick="closeModal()">확인</span>
+    </div>
+</div>
+<div class="container">
+    <div class="belt belt1"></div>
+    <div class="belt belt2 reverse"></div>
+    <div class="belt belt3"></div>
+    <div class="belt belt4 reverse"></div>
+    <div class="belt belt5"></div>
+</div>
+<script src="../static/js/delete.js"></script>
+</body>
+</html>

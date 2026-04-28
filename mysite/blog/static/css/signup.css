@@ -1,0 +1,106 @@
+
+h1 {
+    color: #4d567b;
+    font-size: 3.0em;
+    font-family: 'BitBit', sans-serif;
+    font-weight: 400;
+    margin-top: 50px;
+}
+
+/* 로그인 화면으로 돌아가기 */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #f4f4f7;
+    color: #2a3478;
+    border: 1px solid #ccc;
+    padding: 15px 22px;
+    border-radius: 20px;
+    font-family: 'RoundMo', sans-serif;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #2a3478;
+    color: white;
+}
+
+/* 회원가입 박스 */
+.signup-box {
+    margin: 40px auto;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    font-family: 'RoundMo', sans-serif;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Galmuri9', sans-serif !important;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.input-group input:focus {
+    color: #2E343E;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-group input::placeholder {
+    font-family: 'Galmuri9', sans-serif;
+    font-size: 14px;
+    color: #a4a6ab;
+    font-weight: normal;
+}
+
+/* 라벨 */
+.input-group label {
+    width: 100px;
+    color: #272828;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'RoundMo', sans-serif;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #606a8a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'RoundMo', sans-serif;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.submit-btn:hover {
+    background-color: darkblue;
+}

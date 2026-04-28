@@ -1,0 +1,211 @@
+h1 {
+    color: #7c829a;
+    font-size: 2.6em;
+    font-family: 'BitBit', sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+}
+
+h2 {
+    color: #4d567b;
+    font-size: 2.4em;
+    font-family: 'BitBit', sans-serif !important;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-left: 3%;
+}
+
+body {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.result-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.result-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 80%;
+    max-width: 900px;
+    min-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.result-box h2 {
+    color: #6D7485;
+    font-weight: bold;
+    font-family: 'RoundMo', sans-serif !important;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    white-space: nowrap;
+    display: block;
+}
+
+/* 오류 메시지 */
+.error-message {
+    color: #717881;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'RoundMo', sans-serif;
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.again-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #f4f4f7;
+    color: #2a3478;
+    border: 1px solid #ccc;
+    padding: 15px 22px;
+    border-radius: 20px;
+    font-family: 'RoundMo', sans-serif;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.again-button:hover {
+    background-color: #2a3478;
+    color: white;
+}
+
+.recom-box textarea {
+    width: 100%;
+    height: 300px;
+    padding: 0px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    resize: vertical;
+}
+
+.finish-btn {
+    margin-top: 10px;
+    width: 70%;
+    padding: 10px;
+    background-color: #606a8a;
+    color: white;
+    border-radius: 10px;
+    font-family: 'RoundMo', sans-serif;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.finish-btn:hover {
+    background-color: darkblue;
+}
+
+.response-text {
+    color: #5e5e5e;
+    font-weight: 400;
+}
+
+.recipe_step {
+    text-align: left;
+}
+
+.recipe_step h2 {
+    text-align: left;
+    font-family: 'RoundMo', sans-serif;
+}
+
+h2 {
+    font-family: 'RoundMo', sans-serif;
+    color: #4d567b;
+
+}
+
+li {
+    color: #676767;
+    text-align: left;
+    font-family: 'RoundMo', sans-serif;
+    line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .result-box {
+        width: 95%;
+        max-height: 70vh;
+    }
+
+    .again-button {
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .finish-btn {
+        width: 90%;
+        font-size: 18px;
+    }
+
+    .recipe-steps {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .result-box {
+        width: 100%;
+        padding: 15px;
+        max-height: 60vh;
+    }
+
+    .again-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .finish-btn {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .recipe-steps {
+        margin-left: 5px;
+    }
+}

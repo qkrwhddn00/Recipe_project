@@ -1,0 +1,152 @@
+h1 {
+    color: #4d567b;
+    font-size: 3.2em;
+    font-family: 'BitBit', sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    width: 70%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 0 20px;
+    height: auto;
+    overflow-y: auto;
+}
+
+.category {
+    width: 260px;
+    height: 270px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1.0);
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    text-align: center;
+}
+
+.category img {
+    width: 240px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.category p {
+    color: #646476;
+    font-size: 22px;
+    font-family: 'RoundMo', sans-serif;
+    margin-top: 10px;
+}
+
+.category-link {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.category-link:hover .category {
+    background-color: #6a6f89;
+}
+
+.category-link:hover .category p {
+    color: white;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #f4f4f7;
+    color: #2a3478;
+    border: 1px solid #ccc;
+    padding: 15px 22px;
+    border-radius: 20px;
+    font-family: 'RoundMo', sans-serif;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #D7DDE8;
+    color: white;
+}
+
+/*.modal {*/
+/*    display: none;*/
+/*    position: fixed;*/
+/*    z-index: 1000;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-color: rgba(0, 0, 0, 0.6);*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.modal-content {*/
+/*    background-color: white;*/
+/*    padding: 20px;*/
+/*    border-radius: 8px;*/
+/*    text-align: center;*/
+/*    width: 400px;*/
+/*    max-width: 90%;*/
+/*}*/
+
+/*.modal img {*/
+/*    max-width: 100%;*/
+/*    height: auto;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.close {*/
+/*    position: absolute;*/
+/*    top: 10px;*/
+/*    right: 20px;*/
+/*    font-size: 30px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+
+/* 네비게이션 바 */
+.navbar {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    justify-content: space-between;
+    background-color: #606a8a;
+    width: 100%;
+    margin: 0 auto 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.navbar a {
+    margin-left: 3%;
+    margin-right: 3%;
+    color: white;
+    font-size: 24px;
+    font-family: 'RoundMo', sans-serif;
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+}
+
+/* 호버 효과 */
+.navbar a:hover {
+    background-color: #d6d7ea;
+    color: #3f437e;
+}

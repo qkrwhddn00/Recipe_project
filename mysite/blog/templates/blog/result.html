@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 레시피 추천결과</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/result.css">
+</head>
+<body>
+<header>
+    <a href="{% url 'recommend' %}" class="again-button">다시 입력</a>
+    <a href="{% url 'user_list' %}" id="mylabel_link" class="mylabel">
+        {{ GLOBAL_NICKNAME }} 님
+        <img src="../../static/images/myicon.png" alt="아이콘" class="mylabel-icon">
+    </a>
+    <a href="{% url 'main' %}" class="logo_img">
+        <img src="../../static/images/LogowithoutText.png" alt="로고" class="pagelogo">
+    </a>
+</header>
+
+<main>
+    <h1>오늘의 레시피 추천</h1>
+    <h2>{{ dish_name }}{% if dish_type %} ({{ dish_type }}){% endif %}</h2>
+    {% if api_error %}
+    <p class="error-message">{{ api_error }}</p>
+    {% endif %}
+
+    <form action="{% url 'main' %}" method="POST">
+        {% csrf_token %}
+        <div class="result-box">
+            {% if dish_name %}
+            <img src="/static/generated/{{ image_url }}" alt="추천 요리 이미지" class="result-img">
+            <div class="recipe_step">
+                <h2>레시피 단계</h2>
+            </div>
+
+            <ol>
+                {% for step in recipe_steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+            {% else %}
+            <p class="error-message">추천 결과를 가져오지 못했습니다.</p>
+            {% endif %}
+
+            <button type="submit" class="finish-btn">종료</button>
+        </div>
+    </form>
+</main>
+
+<div id="error-modal" class="guest-modal" style="display: none;">
+    <div class="guest-modal-content">
+        <p>게스트는 마이페이지에 접근할 수 없습니다.</p>
+        <span class="guest-modal-btn" onclick="closeModal()">확인</span>
+    </div>
+</div>
+<div class="container">
+    <div class="belt belt1"></div>
+    <div class="belt belt2 reverse"></div>
+    <div class="belt belt3"></div>
+    <div class="belt belt4 reverse"></div>
+    <div class="belt belt5"></div>
+</div>
+<script src="../static/js/result.js"></script>
+</body>
+</html>

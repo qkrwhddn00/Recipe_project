@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의레시피: 추천페이지</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/recommend.css">
+</head>
+<body>
+<form action="{% url 'get_gpt_response' %}" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'main' %}" class="back-button">뒤로 가기</a>
+    <!-- 마이페이지 라벨 -->
+    <a href="{% url 'user_list' %}" id="mylabel_link" class="mylabel">
+        {{ GLOBAL_NICKNAME }} 님
+        <img src="../../static/images/myicon.png" alt="아이콘" class="mylabel-icon">
+    </a>
+    <a href="{% url 'main' %}">
+        <img src="../../static/images/LogowithoutText.png" alt="로고1" class="pagelogo">
+    </a>
+    <h1>내가 가진 재료는?</h1>
+    <div class="recom-box">
+        <textarea name="ingredientInput" id="ingredientInput" placeholder="재료를 입력하세요"></textarea><br>
+        <!-- 안내 문구 추가 -->
+        <p class="guide-text"># 쉼표(,)로 각 재료를 구분합니다.</p>
+        <button type="submit" class="recom-btn">레시피 추천</button>
+    </div>
+
+    <div class="container">
+        <div class="belt belt1"></div>
+        <div class="belt belt2 reverse"></div>
+        <div class="belt belt3"></div>
+        <div class="belt belt4 reverse"></div>
+        <div class="belt belt5"></div>
+    </div>
+
+    <div id="warningModal" class="warningModal">
+        <div class="modal-content">
+            <p>재료 정보가 충분하지 않습니다!</p>
+            <button type="button" id="closeButton">다시 시도</button>
+        </div>
+    </div>
+</form>
+<div id="error-modal" class="guest-modal" style="display: none;">
+    <div class="guest-modal-content">
+        <p>게스트는 마이페이지에<br>접근할 수 없습니다.</p>
+        <span class="guest-modal-btn" onclick="closeModal()">확인</span>
+    </div>
+</div>
+<script src="../static/js/recommend_modal.js"></script>
+</body>
+</html>

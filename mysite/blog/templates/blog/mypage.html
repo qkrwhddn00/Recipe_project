@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의레시피: 마이페이지</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/mypage.css">
+</head>
+<body>
+<form action="{% url 'get_gpt_response' %}" method="POST">
+    {% csrf_token %}
+    <!-- 메인으로 버튼 -->
+    <a href="{% url 'main' %}" class="back-button">메인으로</a>
+
+    <!-- 마이페이지 라벨 -->
+    <a href="{% url 'user_list' %}" id="mylabel_link" class="mylabel">
+        {{ GLOBAL_NICKNAME }} 님
+        <img src="../../static/images/myicon.png" alt="아이콘" class="mylabel-icon">
+    </a>
+
+    <a href="{% url 'main' %}">
+        <img src="../../static/images/LogowithoutText.png" alt="로고1" class="mypagelogo">
+    </a>
+
+    <h1><span class="mypage-title">마이페이지</span> : 검색 기록</h1>
+</form>
+
+<form id="deleteForm" method="POST">
+    {% csrf_token %}
+    <button type="button" id="deleteSelected" data-url="{% url 'delete_selected_recipes' %}">선택 삭제</button>
+    <button type="button" id="deleteAll" data-url="{% url 'delete_all_recipes' %}">전체 삭제</button>
+</form>
+
+<div class="user-list">
+    {% for user in users %}
+    <div class="user-card category" onclick="openModal('{{ user.recom_rec_name }}', '{{ user.list }}', '{{ user.prompt }}', event)">
+        <input type="checkbox" class="recipe-checkbox" value="{{ user.id }}" onclick="checkboxClicked(event)">
+        <img src="/static/generated/{{ user.image_url }}" alt="recipe image">
+        <h4>{{ user.recom_rec_name }}</h4>
+    </div>
+    {% empty %}
+    <p class="error-message">검색 기록이 없습니다.</p>
+    {% endfor %}
+</div>
+
+
+
+<!-- 모달 배경 오버레이  -->
+<div id="recipe-modal-background" class="recipe-modal-background"></div>
+
+<!-- 모달 창 -->
+<div id="recipe-modal" class="recipe-modal">
+    <div class="recipe-modal-content">
+        <!-- 레시피 이름 -->
+        <h2 id="modal-recipe-name"></h2>
+
+        <!-- 이미지 자리 -->
+        <img id="modal-recipe-image" class="recipe-modal-image" src="" alt="Recipe Image" style="display: none;"/>
+
+        <p id="modal-recipe-prompt"></p>
+
+        <!-- 레시피 리스트 -->
+        <div id="modal-recipe-list"></div>
+
+        <!-- 닫기 버튼 -->
+        <button onclick="closeModal()">닫기</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="belt belt1"></div>
+    <div class="belt belt2 reverse"></div>
+    <div class="belt belt3"></div>
+    <div class="belt belt4 reverse"></div>
+    <div class="belt belt5"></div>
+</div>
+<script src="../static/js/deletemodal.js"></script>
+<script src="../static/js/delete.js"></script>
+</body>
+</html>
+
+

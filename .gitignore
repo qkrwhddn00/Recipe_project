@@ -1,0 +1,15 @@
+.env
+.env.local
+node_modules/
+.env
+mysite./env
+mysite/.env.local
+.env
+.env.local
+mysite/.env
+mysite/.env.local
+node_modules/
+.env
+.env.local
+mysite/.env
+mysite/.env.local

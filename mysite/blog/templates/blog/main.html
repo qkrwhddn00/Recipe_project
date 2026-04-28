@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의레시피: 메인</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../../static/css/main.css">
+</head>
+<body>
+<!-- 로그아웃 버튼 (a 태그로) -->
+<a href="{% url 'home' %}" class="back-button">로그아웃하기</a>
+
+<!-- 마이페이지 라벨 추가 -->
+<a href="{% url 'user_list' %}" id="mylabel_link" class="mylabel">
+    {{ GLOBAL_NICKNAME }} 님
+    <img src="../../static/images/myicon.png" alt="아이콘" class="mylabel-icon">
+</a>
+
+<a href="{% url 'main' %}">
+    <img src="../../static/images/LogowithoutText.png" alt="로고1" class="pagelogo">
+</a>
+<h1>오늘의 레시피는?</h1>
+<!-- 각 a태그에 url연결 해놓음 -> koreanfood.html로 -->
+<div class="grid">
+    <a href="{% url 'ko_food' category='한식' %}" class="category-link">
+        <div class="category"><img src="../../static/images/food_KOR2.png" alt="한식">
+            <p>한식</p></div>
+        <a href="{% url 'ko_food' category='중식' %}" class="category-link">
+            <div class="category"><img src="../../static/images/food_CN2.png" alt="중식">
+                <p>중식</p></div>
+            <a href="{% url 'ko_food' category='양식' %}" class="category-link">
+                <div class="category"><img src="../../static/images/food_Wes2.png" alt="양식">
+                    <p>양식</p></div>
+                <a href="{% url 'ko_food' category='일식' %}" class="category-link">
+                    <div class="category"><img src="../../static/images/food_JP2.png" alt="일식">
+                        <p>일식</p></div>
+                    <a href="{% url 'ko_food' category='디저트' %}" class="category-link">
+                        <div class="category"><img src="../../static/images/food_Dessert2.png" alt="디저트">
+                            <p>디저트</p></div>
+
+                        <!-- 추천 카테고리>> recommendation.html로 이동 -->
+                        <a href="{% url 'recommend' %}" class="category-link">
+                            <div class="category"><img src="../../static/images/food_+.png" alt="추천">
+                                <p>추천</p></div>
+                        </a>
+</div>
+<div id="error-modal" class="guest-modal" style="display: none;">
+    <div class="guest-modal-content">
+        <p>게스트는 마이페이지에<br>접근할 수 없습니다.</p>
+        <span class="guest-modal-btn" onclick="closeModal()">확인</span>
+    </div>
+</div>
+<div class="container">
+    <div class="belt belt1"></div>
+    <div class="belt belt2 reverse"></div>
+    <div class="belt belt3"></div>
+    <div class="belt belt4 reverse"></div>
+    <div class="belt belt5"></div>
+</div>
+<script src="../static/js/main_modal.js"></script>
+</body>
+</html>

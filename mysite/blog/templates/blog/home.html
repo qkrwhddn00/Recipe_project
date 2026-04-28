@@ -1,0 +1,63 @@
+{% load static %} <!-- static 파일 로드 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 레시피는? 시작</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+<!-- 회원가입 버튼 -->
+<a href="{% url 'signup' %}" class="signup-btn">회원가입</a>
+
+<!-- 오류 메시지를 위한 모달 -->
+<div id="errorModal" class="modal">
+    <div class="modal-content">
+        <p id="modalMessage"></p>
+        <button onclick="closeModal()">확인</button>
+    </div>
+</div>
+
+<!-- 오류 메시지를 숨겨진 데이터 속성으로 저장 -->
+<div id="errorMessages" data-messages="
+        {% for message in messages %}
+            {% if message.tags == 'error' %}{{ message }}{% endif %}
+        {% endfor %}">
+</div>
+<a href="{% url 'home' %}">
+    <img src="../../static/images/LogowithoutText.png" alt="로고1" class="homelogo">
+</a>
+
+<h1>오늘의 레시피는?</h1>
+
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <div class="login-box">
+        <div class="input-container">
+            <input type="text" id="nickname" name="nickname" placeholder="아이디" required>
+            <input type="password" id="password" name="password" placeholder="비밀번호" required>
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="login-btn">로그인</button>
+        </div>
+    </div>
+</form>
+<form action="{% url 'guest_login' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" formaction="{% url 'guest_login' %}" class="guest-btn">게스트 로그인</button>
+</form>
+
+<div class="container">
+    <div class="belt belt1"></div>
+    <div class="belt belt2 reverse"></div>
+    <div class="belt belt3"></div>
+    <div class="belt belt4 reverse"></div>
+    <div class="belt belt5"></div>
+</div>
+<script src="../static/js/home.js"></script>
+</body>
+</html>

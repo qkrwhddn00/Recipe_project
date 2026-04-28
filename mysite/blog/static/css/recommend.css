@@ -1,0 +1,157 @@
+h1 {
+    color: #4d567b;
+    font-size: 3.2em;
+    font-family: 'BitBit', sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-left: 3%;
+}
+
+/* 뒤로 가기 */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #f4f4f7;
+    color: #2a3478;
+    border: 1px solid #ccc;
+    padding: 15px 22px;
+    border-radius: 20px;
+    font-family: 'RoundMo', sans-serif;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #2a3478;
+    color: white;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.recom-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.recom-box textarea {
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    font-family: 'Galmuri9', sans-serif;
+    font-weight: normal;
+    background-color: #fbfbfb;
+    resize: vertical;
+}
+
+.recom-box textarea:focus {
+    color: #2E343E;
+    background-color: #eef0f9;
+}
+
+/* 레시피 추천 버튼 */
+.recom-btn {
+    margin-top: 10px;
+    width: 70%;
+    padding: 10px;
+    background-color: #606a8a;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'RoundMo', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.recom-btn:hover {
+    background-color: darkblue;
+}
+
+.guide-text {
+    font-size: 18px;
+    color: #c3c6cd;
+    text-align: center;
+    margin-top: 5px;
+    font-family: 'RoundMo', sans-serif;
+    font-weight: normal;
+}
+
+/* 재료 부족할경우 모달 창 */
+.warningModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.warningModal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    color: #5d5d5e;
+    font-family: 'RoundMo', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.warningModal .modal-content p {
+    margin-bottom: 30px;
+}
+
+.warningModal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #E57157;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'RoundMo', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.warningModal button:hover {
+    background-color: #f15d3e;
+    color: #ffe3e2;
+}

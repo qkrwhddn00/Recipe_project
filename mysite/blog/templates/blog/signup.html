@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의레시피: 회원가입</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/signup.css">
+</head>
+<body>
+<!-- 로그인 화면으로 돌아가기 버튼 -->
+<a href="{% url 'home' %}" class="back-btn">로그인 화면으로 돌아가기</a>
+
+<h1>회원 가입</h1>
+<div class="signup-box">
+    <!-- 회원가입 폼 시작 -->
+    <form action="{% url 'signup_re' %}" method="POST">
+        {% csrf_token %}
+        <div class="input-group">
+            <label for="nickname">닉네임</label>
+            <input type="text" id="nickname" name="nickname" placeholder="닉네임" required>
+        </div>
+
+        <div class="input-group">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="이메일" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" placeholder="비밀번호" required>
+        </div>
+
+        <div class="input-group">
+            <label for="confirm-password"> </label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="비밀번호 확인" required>
+        </div>
+
+        <!-- 회원가입 버튼 -->
+        <button type="submit" class="submit-btn">등록</button>
+    </form>
+    <!-- 회원가입 폼 끝 -->
+</div>
+
+<div class="container">
+    <div class="belt belt1"></div>
+    <div class="belt belt2 reverse"></div>
+    <div class="belt belt3"></div>
+    <div class="belt belt4 reverse"></div>
+    <div class="belt belt5"></div>
+</div>
+</body>
+</html>

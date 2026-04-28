@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ rec_name }} - 레시피</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../../static/css/recipe_detail.css">
+</head>
+<body>
+<header>
+    <a href="{% url 'main' %}" class="back-button" style="position: absolute; left: 10px;">메인으로</a>
+</header>
+<main class="recipe-wrapper" style="overflow-x: auto;">
+    {% if error %}
+    <div class="error-message">
+        <p>{{ error }}</p>
+    </div>
+    {% else %}
+    <h1>{{ rec_name }}</h1>
+    <div class="recipe-container">
+        {% if rec_img %}
+        <div class="image-container">
+            <img src="{{ rec_img }}" alt="{{ rec_name }}" class="recipe-detail-image">
+        </div>
+        {% else %}
+        <p>이미지 없음</p>
+        {% endif %}
+        <div class="recipe-content">
+            <h3>{{ rec_descrip }}</h3>
+            <h2>레시피</h2>
+            <div class="recipe-steps">
+                {% for step in rec_detail %}
+                <p>{{ forloop.counter }}. {{ step }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</main>
+
+<div class="container">
+    <div class="belt belt1"></div>
+    <div class="belt belt2 reverse"></div>
+    <div class="belt belt3"></div>
+    <div class="belt belt4 reverse"></div>
+    <div class="belt belt5"></div>
+</div>
+</body>
+</html>
